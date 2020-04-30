@@ -103,6 +103,5 @@ mod_mirrorbrain = executable('proxysql',
     install: true,
     link_args: [
         '-L../deps/mariadb-client-library/mariadb_client/libmariadb', '-lmariadbclient',
-        '-L../deps/clickhouse-cpp/clickhouse-cpp/clickhouse/', '-lclickhouse-cpp-lib',
     ],
 )
