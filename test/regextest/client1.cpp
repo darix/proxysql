@@ -1,5 +1,4 @@
 #include "re2/re2.h"
-#include "re2/regexp.h"
 #include "proxysql.h"
 #include "cpp.h"
 
