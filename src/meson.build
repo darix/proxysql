@@ -3,11 +3,11 @@ cpp_compiler = meson.get_compiler('cpp')
 stdcpp       = cpp_compiler.find_library('stdc++',    required: true)
 dl           = cpp_compiler.find_library('dl',        required: true)
 libinjection = cpp_compiler.find_library('injection', required: true)
-libcityhash  = cpp_compiler.find_library('cityhash',  required: true)
+clickhouse-cpp = cpp_compiler.find_library('clickhouse-cpp-lib-static', required: true)
 
 cpp_compiler.has_header('libinjection.h',      required: true)
 cpp_compiler.has_header('libinjection_sqli.h', required: true)
-cpp_compiler.has_header('city.h',              required: true)
+cpp_compiler.has_header('clickhouse/client.h', required: true)
 
 # TODO: use declare_dependency when we have a subproject for the patched mariadbclient
 #libmariadbclient = cpp_compiler.find_library('libmariadbclient',
@@ -35,7 +35,6 @@ deps = [
         stdcpp,
         dl,
         libinjection,
-        libcityhash,
         jemalloc,
         libdaemon,
         libconfig,
@@ -96,9 +95,6 @@ sources = [
 includes = [
     '../include/',
     '../deps/mariadb-client-library/mariadb_client/include',
-    '../deps/clickhouse-cpp/clickhouse-cpp',
-    '../deps/clickhouse-cpp/clickhouse-cpp/clickhouse',
-    '../deps/clickhouse-cpp/clickhouse-cpp/clickhouse/base',
 ]
 
 mod_mirrorbrain = executable('proxysql',

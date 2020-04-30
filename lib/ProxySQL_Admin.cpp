@@ -39,7 +39,7 @@
 #include <fcntl.h>
 #include <sys/utsname.h>
 
-#include "platform.h"
+#include "clickhouse/base/platform.h"
 #include "microhttpd.h"
 
 //#define MYSQL_THREAD_IMPLEMENTATION
