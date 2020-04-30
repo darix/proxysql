@@ -3,7 +3,7 @@ cpp_compiler = meson.get_compiler('cpp')
 stdcpp       = cpp_compiler.find_library('stdc++',    required: true)
 dl           = cpp_compiler.find_library('dl',        required: true)
 libinjection = cpp_compiler.find_library('injection', required: true)
-clickhouse-cpp = cpp_compiler.find_library('clickhouse-cpp-lib-static', required: true)
+clickhouse   = cpp_compiler.find_library('clickhouse-cpp-lib-static', required: true)
 
 cpp_compiler.has_header('libinjection.h',      required: true)
 cpp_compiler.has_header('libinjection_sqli.h', required: true)
@@ -34,6 +34,7 @@ zlib          = dependency('zlib',          required: true)
 deps = [
         stdcpp,
         dl,
+        clickhouse,
         libinjection,
         jemalloc,
         libdaemon,
