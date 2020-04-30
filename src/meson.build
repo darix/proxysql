@@ -22,7 +22,6 @@ libconfig     = dependency('libconfig++',   required: true)
 re2           = dependency('re2',           required: true)
 pcre          = dependency('libpcrecpp',    required: true)
 sqlite3       = dependency('sqlite3',       required: true)
-liblz4        = dependency('liblz4',        required: true)
 libmicrohttpd = dependency('libmicrohttpd', required: true)
 libhttpserver = dependency('libhttpserver', required: true)
 libcurl       = dependency('libcurl',       required: true)
@@ -42,7 +41,6 @@ deps = [
         re2,
         pcre,
         sqlite3,
-        liblz4,
         libmicrohttpd,
         libhttpserver,
         libcurl,
