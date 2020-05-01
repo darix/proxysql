@@ -1,6 +1,6 @@
 cpp_compiler = meson.get_compiler('cpp')
 
-compiler_flags = cpp_compiler.get_supported_arguments(['-faligned-new'])
+compiler_flags = cpp_compiler.get_supported_arguments(['-faligned-new', '-fno-strict-aliasing'])
 add_project_arguments(compiler_flags, language: 'cpp')
 
 stdcpp       = cpp_compiler.find_library('stdc++',    required: true)
