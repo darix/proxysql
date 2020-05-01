@@ -112,6 +112,6 @@ mod_mirrorbrain = executable('proxysql',
     install_dir : get_option('sbindir'),
     pie: true,
     link_args: [
-        '-L../deps/mariadb-client-library/mariadb_client/libmariadb', '-lmariadbclient',
+        '-L../deps/mariadb-client-library/mariadb_client/build/libmariadb/', '-lmariadbclient',
     ],
 )
