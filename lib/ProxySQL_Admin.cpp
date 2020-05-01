@@ -39,7 +39,9 @@
 #include <fcntl.h>
 #include <sys/utsname.h>
 
+#ifdef PROXYSQLCLICKHOUSE
 #include "clickhouse/base/platform.h"
+#endif /* PROXYSQLCLICKHOUSE */
 #include "microhttpd.h"
 
 //#define MYSQL_THREAD_IMPLEMENTATION
