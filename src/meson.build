@@ -1,5 +1,8 @@
 cpp_compiler = meson.get_compiler('cpp')
 
+compiler_flags = cpp_compiler.get_supported_arguments(['-faligned-new'])
+add_project_arguments(compiler_flags, language: 'cpp')
+
 stdcpp       = cpp_compiler.find_library('stdc++',    required: true)
 dl           = cpp_compiler.find_library('dl',        required: true)
 libinjection = cpp_compiler.find_library('injection', required: true)
@@ -102,6 +105,8 @@ mod_mirrorbrain = executable('proxysql',
     dependencies: deps,
     include_directories: includes,
     install: true,
+    install_dir : get_option('sbindir'),
+    pie: true,
     link_args: [
         '-L../deps/mariadb-client-library/mariadb_client/libmariadb', '-lmariadbclient',
     ],
