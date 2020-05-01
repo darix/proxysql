@@ -9,10 +9,6 @@ libinjection = cpp_compiler.find_library('injection', required: true)
 
 cpp_compiler.has_header('libinjection.h',      required: true)
 cpp_compiler.has_header('libinjection_sqli.h', required: true)
-if get_option('clickhouse')
-    clickhouse   = cpp_compiler.find_library('clickhouse-cpp-lib-static', required: true)
-    cpp_compiler.has_header('clickhouse/client.h', required: true)
-endif
 
 # TODO: use declare_dependency when we have a subproject for the patched mariadbclient
 #libmariadbclient = cpp_compiler.find_library('libmariadbclient',
@@ -57,8 +53,6 @@ deps = [
 sources = [
    '../lib/c_tokenizer.c',
    '../lib/Chart_bundle_js.cpp',
-   '../lib/ClickHouse_Authentication.cpp',
-   '../lib/ClickHouse_Server.cpp',
    '../lib/configfile.cpp',
    '../lib/debug.cpp',
    '../lib/font-awesome.min.css.cpp',
@@ -99,6 +93,15 @@ includes = [
     '../include/',
     '../deps/mariadb-client-library/mariadb_client/include',
 ]
+
+if get_option('clickhouse')
+    deps   += [ cpp_compiler.find_library('clickhouse-cpp-lib-static', required: true) ]
+    cpp_compiler.has_header('clickhouse/client.h', required: true)
+    sources += [
+       '../lib/ClickHouse_Authentication.cpp',
+       '../lib/ClickHouse_Server.cpp',
+    ]
+endif
 
 mod_mirrorbrain = executable('proxysql',
     sources,
