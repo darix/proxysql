@@ -1,0 +1,2 @@
+option('clickhouse', type : 'boolean', value : false,
+       description: 'Build with clickhouse proxy support')
