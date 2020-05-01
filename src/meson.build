@@ -91,6 +91,7 @@ sources = [
 
 includes = [
     '../include/',
+    '../deps/mariadb-client-library/mariadb_client/build/include',
     '../deps/mariadb-client-library/mariadb_client/include',
 ]
 
