@@ -1,6 +1,7 @@
 /* c_tokenizer.c */
 // Borrowed from http://www.cplusplus.com/faq/sequences/strings/split/
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
