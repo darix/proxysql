@@ -2,7 +2,7 @@ project('proxysql', ['c', 'cpp'],
     version: '2.0.10',
     license: 'GPL-3.0',
     meson_version: '>= 0.53.0',
-    default_options : ['cpp_std=gnu++17'],
+    default_options : ['cpp_std=gnu++17', 'c_std=c11'],
 )
 git_version_define = '-DGITVERSION="' + meson.project_version() + '"'
 
