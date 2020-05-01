@@ -4,8 +4,12 @@ project('proxysql', ['c', 'cpp'],
     meson_version: '>= 0.53.0',
 )
 git_version_define = '-DGITVERSION="' + meson.project_version() + '"'
+clickhouse_define  = '-DPROXYSQLCLICKHOUSE'
 
 add_project_arguments(git_version_define, language: 'c')
 add_project_arguments(git_version_define, language: 'cpp')
+
+add_project_arguments(clickhouse_define,  language: 'c')
+add_project_arguments(clickhouse_define,  language: 'cpp')
 
 subdir('src')
